@@ -1,18 +1,16 @@
 <?php
-namespace VIISON\AddressSplitter\Test;
+namespace Pickware\AddressSplitter\Test;
 
-use VIISON\AddressSplitter\AddressSplitter;
+use PHPUnit_Framework_TestCase;
+use Pickware\AddressSplitter\AddressSplitter;
 
-/**
- * @copyright Copyright (c) 2017 VIISON GmbH
- */
-class HouseNumberSplitterTest extends \PHPUnit_Framework_TestCase
+class HouseNumberSplitterTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider validHouseNumberProvider
      *
      * @param string $houseNumber
-     * @param array  $expected
+     * @param array $expected
      */
     public function testValidHouseNumbers($houseNumber, $expected)
     {
@@ -24,70 +22,70 @@ class HouseNumberSplitterTest extends \PHPUnit_Framework_TestCase
      */
     public function validHouseNumberProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 '123',
-                array(
+                [
                     'base' => '123',
-                    'extension' => ''
-                )
-            ),
-            array(
+                    'extension' => '',
+                ],
+            ],
+            [
                 '12A',
-                array(
+                [
                     'base' => '12',
-                    'extension' => 'A'
-                )
-            ),
-            array(
+                    'extension' => 'A',
+                ],
+            ],
+            [
                 '13 B',
-                array(
+                [
                     'base' => '13',
-                    'extension' => 'B'
-                )
-            ),
-            array(
+                    'extension' => 'B',
+                ],
+            ],
+            [
                 '37 HS',
-                array(
+                [
                     'base' => '37',
-                    'extension' => 'HS'
-                )
-            ),
-            array(
+                    'extension' => 'HS',
+                ],
+            ],
+            [
                 '  34/C',
-                array(
+                [
                     'base' => '34',
-                    'extension' => 'C'
-                )
-            ),
-            array(
+                    'extension' => 'C',
+                ],
+            ],
+            [
                 '#23 C',
-                array(
+                [
                     'base' => '23',
-                    'extension' => 'C'
-                )
-            ),
-            array(
+                    'extension' => 'C',
+                ],
+            ],
+            [
                 'No. 12 A',
-                array(
+                [
                     'base' => '12',
-                    'extension' => 'A'
-                )
-            ),
-            array(
+                    'extension' => 'A',
+                ],
+            ],
+            [
                 'No:12/B3 ',
-                array(
+                [
                     'base' => '12',
-                    'extension' => 'B3'
-                )
-            ),
-            array(
+                    'extension' => 'B3',
+                ],
+            ],
+            [
                 '13/15/4/5',
-                array(
+                [
                     'base' => '13',
-                    'extension' => '15/4/5'
-                )
-            ),
-        );
+                    'extension' => '15/4/5',
+                ],
+            ],
+        ];
     }
 }

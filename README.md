@@ -1,4 +1,4 @@
-# AddressSplitting
+# pickware/address-splitter
 
 [![Packagist](https://img.shields.io/packagist/v/viison/address-splitter.svg?style=flat-square)](https://packagist.org/packages/viison/address-splitter) [![Build Status](https://img.shields.io/travis/VIISON/AddressSplitting.svg?style=flat-square)](https://travis-ci.org/VIISON/AddressSplitting) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
@@ -10,7 +10,7 @@ apartment information etc.
 This project can be installed via [Composer](https://getcomposer.org/):
 
 ``` bash
-$ composer require viison/address-splitter
+$ composer require pickware/address-splitter
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ contain information given in front of or after the street name & house number, r
 You can use the address splitting service as follows:
 
 ```php
-var_dump(\VIISON\AddressSplitter\AddressSplitter::splitAddress('Pallaswiesenstr. 57B App. 235'));
+var_dump(\Pickware\AddressSplitter\AddressSplitter::splitAddress('Pallaswiesenstr. 57B App. 235'));
 ```
 
 The output of this command will be:
@@ -81,10 +81,7 @@ Here is a number of examples of addresses and how their splitted representation 
 
 ## Unit Tests
 
-The examples above and even more exemplary address lines are part of our unit tests. The unit tests can be run on the following site: [https://regex101.com/r/vO5fY7/5](https://regex101.com/r/vO5fY7/5)
-
-
-You can also run the tests via [PHPUnit](https://phpunit.de/) from the command line:
+You can run the tests via [PHPUnit](https://phpunit.de/) from the command line:
 
 ```
 $ phpunit
@@ -92,19 +89,8 @@ $ phpunit
 
 If you don't have PHPUnit installed globally, run `composer install` first.
 
-## Further Information
-The need for this functionality came up when we noticed that [Shopware 5](https://github.com/shopware/shopware) does not contain individual fields for the street name
-and the house number anymore. Nevertheless, we needed to have these separated for our [DHL Adapter](http://store.shopware.com/viison00656/dhl-adapter.html),
-because the DHL API expects them to be passed individually.
-
-More background information on how this implementation came together can be found in our [blog post](http://blog.viison.com/post/115849166487/shopware-5-from-a-technical-point-of-view#address-splitting).
-
-# Adresstrennung
-Dieses Projekt ermöglicht es, eine Adresszeile in Straßennamen und Hausnummer sowie weitere Angaben wie z.B. Gebäude- oder Appartmentinformationen zu trennen. Unterstützt werden eine Vielzahl an Adressformaten,
-wie sie weltweit verwendet werden. So ist es z.B. unerheblich, ob die Hausnummer auf die Straße folgt oder ihr voran steht.
-
 ## License ##
 
-**viison/address-splitter** is licensed under the MIT license.  See the `LICENSE` file for more details.
+**pickware/address-splitter** is licensed under the MIT license.  See the `LICENSE` file for more details.
 
 

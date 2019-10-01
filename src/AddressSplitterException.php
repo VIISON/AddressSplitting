@@ -1,10 +1,9 @@
 <?php
-namespace VIISON\AddressSplitter\Exceptions;
+namespace Pickware\AddressSplitter;
 
-/**
- * @copyright Copyright (c) 2017 VIISON GmbH
- */
-class SplittingException extends \InvalidArgumentException
+use Exception;
+
+class AddressSplitterException extends Exception
 {
     const CODE_ADDRESS_SPLITTING_ERROR = 0x01;
     const CODE_HOUSE_NUMBER_SPLITTING_ERROR = 0x02;
@@ -13,11 +12,11 @@ class SplittingException extends \InvalidArgumentException
     /**
      * @var array Predefined error message
      */
-    private static $errorMessages = array(
+    private static $errorMessages = [
         self::CODE_ADDRESS_SPLITTING_ERROR => 'Address \'%s\' could not be splitted into street name and house number.',
         self::CODE_HOUSE_NUMBER_SPLITTING_ERROR => 'House number \'%s\' could not be splitted into base and extension.',
-        self::CODE_UNKNOWN_ERROR => 'Unknown error'
-    );
+        self::CODE_UNKNOWN_ERROR => 'Unknown error',
+    ];
 
     /**
      * Create new SplittingException, automatically adds a meaningful error message when the error code is known.
@@ -25,7 +24,7 @@ class SplittingException extends \InvalidArgumentException
      * @param int $code
      * @param string $splittingSubject The string that was tried to split
      */
-    public function __construct($code, $splittingSubject = '')
+    public function __construct($code, $splittingSubject)
     {
         if (!array_key_exists($code, self::$errorMessages)) {
             $code = self::CODE_UNKNOWN_ERROR;
